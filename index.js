@@ -54,19 +54,14 @@ bot.on('contacts-updated', contacts => {
         if (bot.Contact.getSearchUser(sendName).length) {
             username = bot.Contact.getSearchUser(sendName)[0].UserName;
             console.log('获取目标用户成功: ', sendName, username);
-            // 发送消息
-            // job = new CronJob('*/5 * * * * *', () => {
-            //     myFunc()
-            // }, null, true, 'Asia/Chongqing');
+            myFunc()
         }
     }
 });
 
-i = 0
-new CronJob('0 45 19 * * *', () => {
+function myFunc() {
     if (username) {
-        i++
-        bot.sendMsg('早安', username)
+        bot.sendMsg('这是一条信息轰炸！！！!!', username)
             .then(res => {
                 console.log(`发送消息给 ${sendName} 成功！${i}`)
             })
@@ -74,62 +69,41 @@ new CronJob('0 45 19 * * *', () => {
                 bot.emit('send error', err);
             });
     }
-}, null, true, 'Asia/Shanghai');
+}
 
-
-// function myFunc() {
+// new CronJob('0 10 8 * * MON-FRI', () => {
 //     if (username) {
-//         bot.sendMsg('这是一条信息轰炸！！！', username)
+//         bot.sendMsg('起床啦！！！睡懒猪', username)
 //             .then(res => {
-//                 console.log(`发送消息给 ${sendName} 成功！${i}`)
+//                 console.log(`发送消息给 ${sendName} 成功！`)
 //             })
 //             .catch(err => {
 //                 bot.emit('send error', err);
 //             });
 //     }
-// }
+// }, null, true, 'Asia/Shanghai');
 
-// function myFunc() {
+// new CronJob('0 50 11 * * MON-FRI', () => {
 //     if (username) {
-//         let i = 0
-//         setInterval(() => { 
-//             i++            
-//             bot.sendMsg('这是一条信息轰炸！！！', username)
-//                 .then(res => {
-//                     console.log(`发送消息给 ${sendName} 成功！${i}`)
-//                 })
-//                 .catch(err => {
-//                     bot.emit('send error', err);
-//                 });
-//         }, 200)
-//     }
-// }
-
-
-// if (username) {
-//     bot.sendMsg({
-//         file: request('https://raw.githubusercontent.com/nodeWechat/wechat4u/master/bot-qrcode.jpg'),
-//         filename: 'bot-qrcode.jpg'
-//     }, username).catch(err => {
-//         console.log(err)
-//     })
-// }
-
-// new CronJob('00 30 16 * * *', function () {
-//     if (username) {
-//         console.log('发送消息')
-//         bot.sendMsg('早安', username)
+//         bot.sendMsg('中午吃饭啦，别饿着了！', username)
+//             .then(res => {
+//                 console.log(`发送消息给 ${sendName} 成功！`)
+//             })
 //             .catch(err => {
 //                 bot.emit('send error', err);
 //             });
 //     }
-// }, null, true, 'Asia/Guangzhou');
+// }, null, true, 'Asia/Shanghai');
 
-// new CronJob('00 00 17 * * *', function () {
+// new CronJob('0 30 17 * * MON-FRI', () => {
 //     if (username) {
-//         bot.sendMsg('晚安', username)
+//         bot.sendMsg('下班啦啦啦，出去逛逛吧', username)
+//             .then(res => {
+//                 console.log(`发送消息给 ${sendName} 成功！`)
+//             })
 //             .catch(err => {
 //                 bot.emit('send error', err);
 //             });
 //     }
-// }, null, true, 'Asia/Guangzhou');
+// }, null, true, 'Asia/Shanghai');
+
