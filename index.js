@@ -46,7 +46,7 @@ bot.on('logout', () => {
 });
 
 // 发送消息的人
-sendName = '呵呵'
+sendName = '放羊的猩猩'
 
 bot.on('contacts-updated', contacts => {
     if (!username) {
@@ -54,56 +54,56 @@ bot.on('contacts-updated', contacts => {
         if (bot.Contact.getSearchUser(sendName).length) {
             username = bot.Contact.getSearchUser(sendName)[0].UserName;
             console.log('获取目标用户成功: ', sendName, username);
-            myFunc()
+            // myFunc()
         }
     }
 });
 
-function myFunc() {
+// function myFunc() {
+//     if (username) {
+//         bot.sendMsg('这是一条信息轰炸！！！!!', username)
+//             .then(res => {
+//                 console.log(`发送消息给 ${sendName} 成功！${i}`)
+//             })
+//             .catch(err => {
+//                 bot.emit('send error', err);
+//             });
+//     }
+// }
+
+new CronJob('0 10 8 * * MON-FRI', () => {
     if (username) {
-        bot.sendMsg('这是一条信息轰炸！！！!!', username)
+        bot.sendMsg('起床啦！！！睡懒猪', username)
             .then(res => {
-                console.log(`发送消息给 ${sendName} 成功！${i}`)
+                console.log(`发送消息给 ${sendName} 成功！`)
             })
             .catch(err => {
                 bot.emit('send error', err);
             });
     }
-}
+}, null, true, 'Asia/Shanghai');
 
-// new CronJob('0 10 8 * * MON-FRI', () => {
-//     if (username) {
-//         bot.sendMsg('起床啦！！！睡懒猪', username)
-//             .then(res => {
-//                 console.log(`发送消息给 ${sendName} 成功！`)
-//             })
-//             .catch(err => {
-//                 bot.emit('send error', err);
-//             });
-//     }
-// }, null, true, 'Asia/Shanghai');
+new CronJob('0 50 11 * * MON-FRI', () => {
+    if (username) {
+        bot.sendMsg('中午吃饭啦，别饿着了！', username)
+            .then(res => {
+                console.log(`发送消息给 ${sendName} 成功！`)
+            })
+            .catch(err => {
+                bot.emit('send error', err);
+            });
+    }
+}, null, true, 'Asia/Shanghai');
 
-// new CronJob('0 50 11 * * MON-FRI', () => {
-//     if (username) {
-//         bot.sendMsg('中午吃饭啦，别饿着了！', username)
-//             .then(res => {
-//                 console.log(`发送消息给 ${sendName} 成功！`)
-//             })
-//             .catch(err => {
-//                 bot.emit('send error', err);
-//             });
-//     }
-// }, null, true, 'Asia/Shanghai');
-
-// new CronJob('0 30 17 * * MON-FRI', () => {
-//     if (username) {
-//         bot.sendMsg('下班啦啦啦，出去逛逛吧', username)
-//             .then(res => {
-//                 console.log(`发送消息给 ${sendName} 成功！`)
-//             })
-//             .catch(err => {
-//                 bot.emit('send error', err);
-//             });
-//     }
-// }, null, true, 'Asia/Shanghai');
+new CronJob('0 30 17 * * MON-FRI', () => {
+    if (username) {
+        bot.sendMsg('下班啦啦啦，出去逛逛吧', username)
+            .then(res => {
+                console.log(`发送消息给 ${sendName} 成功！`)
+            })
+            .catch(err => {
+                bot.emit('send error', err);
+            });
+    }
+}, null, true, 'Asia/Shanghai');
 
